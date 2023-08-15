@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+            text-align: center;
+            margin-top: 15%;
+            font-size: 150%;
+            font-weight:900;
+            }
+</style>
+<body>
+    <div>
+        <h1>정기고사</h1>
+        <p id="dday1"></p>
+        <p id="dday2"></p>
+        <p id="dday3"></p>
+    </div>
+<script>
+    function calcDate1() {
+        var goalDate1 = new Date("2023-10-04").getTime();
+        const now = new Date().getTime();
+        const count = goalDate1 - now;
+
+        var dday1 = Math.floor(count/ (1000*60*60*24));
+
+        if (count < 0) {
+            return '(지나감)';
+        }
+        if (count==0){
+            return '시작됨';
+        }else {
+            return `고1,2,3 2학기 중간고사까지 ${dday1+1}일 남음`;
+        }
+    }
+    
+    setInterval(() => {
+        document.getElementById('dday1').innerText = calcDate1();
+    }, 1000);
+
+    function calcDate2() {
+        var goalDate2 = new Date("2023-11-22").getTime();
+        const now = new Date().getTime();
+        const count = goalDate2 - now;
+
+        var dday2 = Math.floor(count/ (1000*60*60*24));
+
+        if (count < 0) {
+            return '(지나감)';
+        } 
+        if (count==0){
+            return '시작됨';
+        }
+        else {
+            return `고3 2학기 기말고사까지 ${dday2+1}일 남음`;
+        }
+    }
+    setInterval(() => {
+        document.getElementById('dday2').innerText = calcDate2();
+    }, 1000);
+
+    function calcDate3() {
+        var goalDate3 = new Date("2023-12-13").getTime();
+        const now = new Date().getTime();
+        const count = goalDate3 - now;
+
+        var dday3 = Math.floor(count/ (1000*60*60*24));
+
+        if (count < 0) {
+            return '(지나감)';
+        } 
+        if (count==0){
+            return '시작됨';
+        }
+        else {
+            return `고1,2 2학기 기말고사까지 ${dday3+1}일 남음`;
+        }
+    }
+    setInterval(() => {
+        document.getElementById('dday3').innerText = calcDate3();
+    }, 1000);
+</script>
+</body>
+</html>
